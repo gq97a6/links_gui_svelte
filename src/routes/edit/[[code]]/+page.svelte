@@ -5,7 +5,7 @@
   import "@material/web/checkbox/checkbox";
   import "@material/web/switch/switch";
   import LinkSlot from "$lib/components/LinkSlot.svelte";
-  import { deleteAddress, getAddress, postAddress, putAddress, type Address, type Link } from "$lib/api.svelte";
+  import { checkAuth, deleteAddress, getAddress, postAddress, putAddress, type Address, type Link } from "$lib/api.svelte";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
   import { toast } from "svelte-sonner";
@@ -202,7 +202,10 @@
     isDirectCheckbox.addEventListener("change", onIsDirectCheckboxChange)
     isRandomCheckbox.addEventListener("change", onIsRandomCheckboxChange)
 
-    if ($page.params.code != undefined) loadAddressByCode($page.params.code)
+    if ($page.params.code != undefined) {
+      await checkAuth($page.params.code)
+      loadAddressByCode($page.params.code)
+    }
   })
 </script>
 
