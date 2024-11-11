@@ -1,4 +1,6 @@
 <script lang="ts" context="module">
+  import { goto } from "$app/navigation";
+
 
   let URL = "/api";
 
@@ -33,13 +35,13 @@
 
     //If both tokens are missing redirect to login page
     if (!cookieExists("refreshToken")) {
-      //window.location.href = `/login/${code}`;
+      goto(`/login/${code}`)
       throw undefined;
     }
 
     //Attempt to login with refreshToken
     loginToken().catch((error) => {
-      //window.location.href = `/login/${code}`;
+      goto(`/login/${code}`)
       throw undefined;
     });
   }
@@ -65,11 +67,6 @@
         body: JSON.stringify(address),
       });
 
-      if (response.status == 401) {
-        //window.location.href = `/login/${address.code}`;
-        throw response.status;
-      } else if (response.status != 200) throw response.status;
-
       return await response.json();
     } catch (error) {
       throw error;
@@ -87,10 +84,7 @@
         body: JSON.stringify(address),
       });
 
-      if (response.status == 401) {
-        //window.location.href = `/login/${address.code}`;
-        throw response.status;
-      } else if (response.status != 200) throw response.status;
+      if (response.status != 200) throw response.status;
     } catch (error) {
       throw error;
     }
@@ -105,10 +99,7 @@
         credentials: "include",
       });
 
-      if (response.status === 401) {
-        //window.location.href = `/login/${code}`;
-        throw response.status;
-      } else if (response.status != 200) throw response.status;
+      if (response.status != 200) throw response.status;
     } catch (error) {
       throw error;
     }
