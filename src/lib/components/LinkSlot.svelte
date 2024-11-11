@@ -5,7 +5,7 @@
   import { FilterChip } from "@material/web/chips/internal/filter-chip";
   import type { ChipSet } from "@material/web/chips/internal/chip-set";
   import type { TextField } from "@material/web/textfield/internal/text-field";
-  import { actionEntries, type Action, type Link } from "$lib/api.svelte";
+  import { actionEntries, type Action, type Link } from "$lib/api.ts";
 
   let { index, link, onActionSelected, onPayloadSet}: {
     index: number,

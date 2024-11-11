@@ -5,7 +5,7 @@
   import "@material/web/checkbox/checkbox";
   import "@material/web/switch/switch";
   import LinkSlot from "$lib/components/LinkSlot.svelte";
-  import { checkAuth, deleteAddress, getAddress, postAddress, putAddress, type Address, type Link } from "$lib/api.svelte";
+  import { checkAuth, deleteAddress, getAddress, postAddress, putAddress, type Address, type Link } from "$lib/api.ts";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
   import { toast } from "svelte-sonner";
@@ -44,7 +44,7 @@
     {payload: "", action: "TAB"}
   ])
   
-  function loadAddressByCode(code: string) {
+  async function loadAddressByCode(code: string) {
     //Validate code
     if (codeField.value.length < 0 || codeField.value.length > 10) {
       toast("Niepoprawny adres");
@@ -202,10 +202,7 @@
     isDirectCheckbox.addEventListener("change", onIsDirectCheckboxChange)
     isRandomCheckbox.addEventListener("change", onIsRandomCheckboxChange)
 
-    if ($page.params.code != undefined) {
-      await checkAuth($page.params.code)
-      loadAddressByCode($page.params.code)
-    }
+    if ($page.params.code != undefined) loadAddressByCode($page.params.code)
   })
 </script>
 

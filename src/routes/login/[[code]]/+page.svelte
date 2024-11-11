@@ -3,7 +3,7 @@
   import "@material/web/button/outlined-button";
   import "@material/web/textfield/outlined-text-field";
   import "@material/web/progress/circular-progress";
-  import { login } from "$lib/api.svelte";
+  import { login } from "$lib/api.ts";
   import { toast } from "svelte-sonner";
   import { page } from "$app/stores";
   import { goto } from '$app/navigation';

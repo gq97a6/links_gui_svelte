@@ -4,7 +4,7 @@
   import CardSlot from "$lib/components/CardSlot.svelte";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
-  import { getAddress, type Address, type Link } from "$lib/api.svelte";
+  import { getAddress, type Address, type Link } from "$lib/api.ts";
   import type { TextField } from "@material/web/textfield/internal/text-field";
   import type { Button } from "@material/web/button/internal/button";
   import { toast } from "svelte-sonner";
