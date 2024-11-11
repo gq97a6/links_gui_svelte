@@ -202,6 +202,7 @@
     isDirectCheckbox.addEventListener("change", onIsDirectCheckboxChange)
     isRandomCheckbox.addEventListener("change", onIsRandomCheckboxChange)
 
+    checkAuth($page.params.code ? $page.params.code : "")
     if ($page.params.code != undefined) loadAddressByCode($page.params.code)
   })
 </script>
