@@ -10,7 +10,7 @@ COPY package.json ./
 COPY package-lock.json ./
 
 # Install only production dependencies
-RUN npm install --only=production
+RUN npm install --omit=dev
 
 # Command to run the app
 CMD ["node", "build/index.js"]

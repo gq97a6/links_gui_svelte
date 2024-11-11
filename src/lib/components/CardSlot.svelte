@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Link } from "$lib/api.svelte";
+  import type { Link } from "$lib/api.ts";
   import { onMount } from "svelte";
   import { toast } from "svelte-sonner";
 
