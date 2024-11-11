@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 
-  let URL = `http://localhost/api`;
+  let URL = "/api";
 
   export type Action = "TAB" | "LINK" | "COPY";
   export const actionEntries: Action[] = ["TAB", "LINK", "COPY"]
