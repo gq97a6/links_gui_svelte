@@ -202,7 +202,7 @@
     isDirectCheckbox.addEventListener("change", onIsDirectCheckboxChange)
     isRandomCheckbox.addEventListener("change", onIsRandomCheckboxChange)
 
-    checkAuth($page.params.code ? $page.params.code : "")
+    await checkAuth($page.params.code ? $page.params.code : "")
     if ($page.params.code != undefined) loadAddressByCode($page.params.code)
   })
 </script>
@@ -238,7 +238,7 @@
   
   <div class="flex flex-col mt-6 w-1/2 mx-auto">
     {#each {length: linkCount} as _, index}
-      <LinkSlot index={index} link={links[index]} onActionSelected={(a) => { links[index].action = a}} onPayloadSet={(p) => {links[0].payload = p}}> </LinkSlot>
+      <LinkSlot index={index} link={links[index]} onActionSelected={(a) => { links[index].action = a}} onPayloadSet={(p) => {links[index].payload = p}}> </LinkSlot>
 	  {/each}
   </div>
     
